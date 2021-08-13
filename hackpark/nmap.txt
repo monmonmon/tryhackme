@@ -1,0 +1,130 @@
+# Nmap 7.91 scan initiated Fri Aug 13 14:26:30 2021 as: nmap -Pn -vv -p80,3389 -n -T5 -A --script default,vuln -oN nmap.txt 10.10.178.96
+Nmap scan report for 10.10.178.96
+Host is up, received user-set (0.26s latency).
+Scanned at 2021-08-13 14:26:41 JST for 706s
+
+PORT     STATE SERVICE            REASON          VERSION
+80/tcp   open  http               syn-ack ttl 127 Microsoft IIS httpd 8.5
+| http-csrf: 
+| Spidering limited to: maxdepth=3; maxpagecount=20; withinhost=10.10.178.96
+|   Found the following possible CSRF vulnerabilities: 
+|     
+|     Path: http://10.10.178.96:80/
+|     Form id: aspnetform
+|     Form action: /
+|     
+|     Path: http://10.10.178.96:80/archive
+|     Form id: aspnetform
+|     Form action: /archive
+|     
+|     Path: http://10.10.178.96:80/post/welcome-to-hack-park
+|     Form id: aspnetform
+|_    Form action: /post/welcome-to-hack-park
+|_http-dombased-xss: Couldn't find any DOM based XSS.
+| http-fileupload-exploiter: 
+|   
+|_    Couldn't find a file-type field.
+|_http-jsonp-detection: Couldn't find any JSONP endpoints.
+|_http-litespeed-sourcecode-download: Request with null byte did not work. This web server might not be vulnerable
+| http-methods: 
+|   Supported Methods: GET HEAD OPTIONS TRACE POST
+|_  Potentially risky methods: TRACE
+| http-robots.txt: 6 disallowed entries 
+| /Account/*.* /search /search.aspx /error404.aspx 
+|_/archive /archive.aspx
+|_http-server-header: Microsoft-IIS/8.5
+|_http-stored-xss: Couldn't find any stored XSS vulnerabilities.
+|_http-title: hackpark | hackpark amusements
+|_http-wordpress-users: [Error] Wordpress installation was not found. We couldn't find wp-login.php
+3389/tcp open  ssl/ms-wbt-server? syn-ack ttl 127
+| rdp-ntlm-info: 
+|   Target_Name: HACKPARK
+|   NetBIOS_Domain_Name: HACKPARK
+|   NetBIOS_Computer_Name: HACKPARK
+|   DNS_Domain_Name: hackpark
+|   DNS_Computer_Name: hackpark
+|   Product_Version: 6.3.9600
+|_  System_Time: 2021-08-13T05:28:21+00:00
+| ssl-cert: Subject: commonName=hackpark
+| Issuer: commonName=hackpark
+| Public Key type: rsa
+| Public Key bits: 2048
+| Signature Algorithm: sha1WithRSAEncryption
+| Not valid before: 2021-08-12T05:21:03
+| Not valid after:  2022-02-11T05:21:03
+| MD5:   8ea5 7954 67dc 8362 01d0 08b4 4f88 5006
+| SHA-1: a97b 0058 4748 4306 86ad ced0 06aa dfd8 1bbb cd94
+| -----BEGIN CERTIFICATE-----
+| MIIC1DCCAbygAwIBAgIQF4RMtOv1VIZIBSqdHmVQ2TANBgkqhkiG9w0BAQUFADAT
+| MREwDwYDVQQDEwhoYWNrcGFyazAeFw0yMTA4MTIwNTIxMDNaFw0yMjAyMTEwNTIx
+| MDNaMBMxETAPBgNVBAMTCGhhY2twYXJrMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8A
+| MIIBCgKCAQEA3jHwKv43eutlzRzKtadFRgU6S3ZV4DdRYsKeS3BaRi3O7ZWkoHJO
+| TfEimQSAD3HTOy7zzqhjROKaI8rPqwYozA8fjAxeH9/P1OqjGMayeLbO62uS7VSs
+| qcWloD6FeoxA0TwlIidw98hA/wZ3H/gwUOKIo/Xo4BwO9HDnMcPIJoDZTeeHpQqW
+| hltJNVCUC8nry/D3jB0HEMGzfs6bUXOrzn52dzlZkBw9dUer7nhI85JMOIeERIQX
+| Hb5V4C0QYROzHmndU/wSci9VqqjhByTxs1iuVmN8Yn+Cuv2GY7jjb0GX/GmZBZ0Q
+| zQiWaUQfFNqbWy91wVOg0H2nonRDIpgrBQIDAQABoyQwIjATBgNVHSUEDDAKBggr
+| BgEFBQcDATALBgNVHQ8EBAMCBDAwDQYJKoZIhvcNAQEFBQADggEBAEqkqM/kcwo+
+| +WgFjtPn5rFXbgPVLk6GbgeHt9ZsU95UGn4ONvUtNQRTM0I0sRdGN/G0c3PwESmq
+| BSA9GzfgvyT9hpIutvJkIYjuUcP+Vi5oIaOtFBLgBxdFl4HfF3k0xbzBHQKWHQsH
+| /3TAZWbOw844xSRq0a46K+BhUlXuMRR3sxbrsuGRBqY+Aa7T2FDP3PRCPS1Hb9FG
+| 7IRqGtwjjSQLGYCFsH4GrLGONgcZxwP32QNNPmF9YVObIIQWq6S1R70EZseMeUoS
+| qUmoI5DSVqasc/5oyVTViDh4W07Bi9xMYD6B+cilHEl7suHyso0oGzz6BuYRRjLp
+| 0rVypbh7QPs=
+|_-----END CERTIFICATE-----
+|_ssl-date: 2021-08-13T05:38:17+00:00; -2s from scanner time.
+| ssl-dh-params: 
+|   VULNERABLE:
+|   Diffie-Hellman Key Exchange Insufficient Group Strength
+|     State: VULNERABLE
+|       Transport Layer Security (TLS) services that use Diffie-Hellman groups
+|       of insufficient strength, especially those using one of a few commonly
+|       shared groups, may be susceptible to passive eavesdropping attacks.
+|     Check results:
+|       WEAK DH GROUP 1
+|             Cipher Suite: TLS_DHE_RSA_WITH_AES_256_GCM_SHA384
+|             Modulus Type: Safe prime
+|             Modulus Source: RFC2409/Oakley Group 2
+|             Modulus Length: 1024
+|             Generator Length: 1024
+|             Public Key Length: 1024
+|     References:
+|_      https://weakdh.org
+|_sslv2-drown: 
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Device type: general purpose
+Running (JUST GUESSING): Microsoft Windows 2012 (96%)
+OS CPE: cpe:/o:microsoft:windows_server_2012:r2
+OS fingerprint not ideal because: Timing level 5 (Insane) used
+Aggressive OS guesses: Microsoft Windows Server 2012 R2 (96%), Microsoft Windows Server 2012 or Windows Server 2012 R2 (89%), Microsoft Windows Server 2012 (87%)
+No exact OS matches for host (test conditions non-ideal).
+TCP/IP fingerprint:
+SCAN(V=7.91%E=4%D=8/13%OT=80%CT=%CU=%PV=Y%DS=2%DC=T%G=N%TM=61160553%P=x86_64-pc-linux-gnu)
+SEQ(SP=106%GCD=1%ISR=105%TI=I%TS=7)
+OPS(O1=M506NW8ST11%O2=M506NW8ST11%O3=M506NW8NNT11%O4=M506NW8ST11%O5=M506NW8ST11%O6=M506ST11)
+WIN(W1=2000%W2=2000%W3=2000%W4=2000%W5=2000%W6=2000)
+ECN(R=Y%DF=Y%TG=80%W=2000%O=M506NW8NNS%CC=Y%Q=)
+T1(R=Y%DF=Y%TG=80%S=O%A=S+%F=AS%RD=0%Q=)
+T2(R=N)
+T3(R=N)
+T4(R=N)
+U1(R=N)
+IE(R=N)
+
+Uptime guess: 0.013 days (since Fri Aug 13 14:20:18 2021)
+Network Distance: 2 hops
+TCP Sequence Prediction: Difficulty=262 (Good luck!)
+IP ID Sequence Generation: Incremental
+Service Info: OS: Windows; CPE: cpe:/o:microsoft:windows
+
+Host script results:
+|_clock-skew: mean: -2s, deviation: 0s, median: -2s
+
+TRACEROUTE (using port 80/tcp)
+HOP RTT       ADDRESS
+1   257.06 ms 10.9.0.1
+2   257.13 ms 10.10.178.96
+
+Read data files from: /usr/bin/../share/nmap
+OS and Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+# Nmap done at Fri Aug 13 14:38:27 2021 -- 1 IP address (1 host up) scanned in 716.30 seconds

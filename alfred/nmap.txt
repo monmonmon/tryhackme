@@ -1,0 +1,117 @@
+# Nmap 7.91 scan initiated Sun Aug  8 21:18:50 2021 as: nmap -Pn -vv -p80,3389,8080 -n -T5 -A --script default,vuln -oN nmap.txt 10.10.10.218
+Nmap scan report for 10.10.10.218
+Host is up, received user-set (0.24s latency).
+Scanned at 2021-08-08 21:19:00 JST for 631s
+
+PORT     STATE SERVICE    REASON          VERSION
+80/tcp   open  http       syn-ack ttl 127 Microsoft IIS httpd 7.5
+|_http-csrf: Couldn't find any CSRF vulnerabilities.
+|_http-dombased-xss: Couldn't find any DOM based XSS.
+|_http-jsonp-detection: Couldn't find any JSONP endpoints.
+|_http-litespeed-sourcecode-download: Request with null byte did not work. This web server might not be vulnerable
+| http-methods: 
+|   Supported Methods: OPTIONS TRACE GET HEAD POST
+|_  Potentially risky methods: TRACE
+|_http-server-header: Microsoft-IIS/7.5
+|_http-stored-xss: Couldn't find any stored XSS vulnerabilities.
+|_http-title: Site doesn't have a title (text/html).
+|_http-wordpress-users: [Error] Wordpress installation was not found. We couldn't find wp-login.php
+3389/tcp open  tcpwrapped syn-ack ttl 127
+| rdp-vuln-ms12-020: 
+|   VULNERABLE:
+|   MS12-020 Remote Desktop Protocol Denial Of Service Vulnerability
+|     State: VULNERABLE
+|     IDs:  CVE:CVE-2012-0152
+|     Risk factor: Medium  CVSSv2: 4.3 (MEDIUM) (AV:N/AC:M/Au:N/C:N/I:N/A:P)
+|           Remote Desktop Protocol vulnerability that could allow remote attackers to cause a denial of service.
+|           
+|     Disclosure date: 2012-03-13
+|     References:
+|       http://technet.microsoft.com/en-us/security/bulletin/ms12-020
+|       https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-0152
+|   
+|   MS12-020 Remote Desktop Protocol Remote Code Execution Vulnerability
+|     State: VULNERABLE
+|     IDs:  CVE:CVE-2012-0002
+|     Risk factor: High  CVSSv2: 9.3 (HIGH) (AV:N/AC:M/Au:N/C:C/I:C/A:C)
+|           Remote Desktop Protocol vulnerability that could allow remote attackers to execute arbitrary code on the targeted system.
+|           
+|     Disclosure date: 2012-03-13
+|     References:
+|       https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-0002
+|_      http://technet.microsoft.com/en-us/security/bulletin/ms12-020
+|_ssl-ccs-injection: No reply from server (TIMEOUT)
+| ssl-cert: Subject: commonName=alfred
+| Issuer: commonName=alfred
+| Public Key type: rsa
+| Public Key bits: 2048
+| Signature Algorithm: sha1WithRSAEncryption
+| Not valid before: 2021-08-07T11:38:18
+| Not valid after:  2022-02-06T11:38:18
+| MD5:   1d76 fd51 f813 f3ab 4eb2 a911 ba4b 851e
+| SHA-1: f83a 68cb 77c4 1873 683b 00df ce4b 4938 fe2c 91c5
+| -----BEGIN CERTIFICATE-----
+| MIIC0DCCAbigAwIBAgIQL4YxkU4muKhLE+W47SMgrzANBgkqhkiG9w0BAQUFADAR
+| MQ8wDQYDVQQDEwZhbGZyZWQwHhcNMjEwODA3MTEzODE4WhcNMjIwMjA2MTEzODE4
+| WjARMQ8wDQYDVQQDEwZhbGZyZWQwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEK
+| AoIBAQDnWiI28/HyXumfyNKEaH41P5aNsLw2FJI2aLbp5so50moQ7SDNHWXv5bHF
+| XbcaqOEWESAAIZLGaJsTZ2l2fG48V1dlNP0EfgRIA4Vjk+4SUTPMr/rbYPu2nRRn
+| LGiiat33RoJGVXP3IGfNgTRI+LXD5Z/l5hnGyl5cCl6a7rrGOI4Q4sLPizRFW98Q
+| 0C8bkdGqmM5Lra/PAJdyhRbbBWs/+9Izvz8FpuML5QEogn+xcsF8LCkfGJeq55CP
+| X9fMEio4K+tCamuWnzLGF6kSGbbZbobi91iLXV9SnCTgqs/I7RQtO+rnNuHHB4bR
+| CxYWk2ANg8klurxJuTApI43hFrgnAgMBAAGjJDAiMBMGA1UdJQQMMAoGCCsGAQUF
+| BwMBMAsGA1UdDwQEAwIEMDANBgkqhkiG9w0BAQUFAAOCAQEAgrgnJrTOeQD1ggT6
+| 1z4UrvuZVkruP2hs/pUKbQDOZu5348AY4Iz6KJwcvWqW6Sh+OBg6NvlkK25e2my5
+| IefmstV5rYg8Ts+j8aJ6jTTXLU/kcTCmyBT9q2vl5KhkRErU2Z+77dwjpcs96eB0
+| mKp3TmDSaFEMgJ4LAFQtm0cKKEbcVmKQjS4auCxb56gbf7GYMn8Ga2J4DMUm5r6C
+| SNr4SZwCSzL9X620a36VweotE8kvuEHKISdBd735bmwyTfP3rx2HwEWklz6w3ohv
+| nGxQQdMW3UC5APtPni3mqVfL0TT6wY29MMMECY4yqm/EZqqmQDX2ICIYSUdZdyg0
+| 48wSFA==
+|_-----END CERTIFICATE-----
+|_ssl-date: 2021-08-08T12:29:20+00:00; -3s from scanner time.
+|_sslv2-drown: 
+8080/tcp open  http       syn-ack ttl 127 Jetty 9.4.z-SNAPSHOT
+|_http-csrf: Couldn't find any CSRF vulnerabilities.
+|_http-dombased-xss: Couldn't find any DOM based XSS.
+|_http-favicon: Unknown favicon MD5: 23E8C7BD78E8CD826C5A6073B15068B1
+|_http-jsonp-detection: Couldn't find any JSONP endpoints.
+|_http-litespeed-sourcecode-download: Request with null byte did not work. This web server might not be vulnerable
+| http-robots.txt: 1 disallowed entry 
+|_/
+|_http-server-header: Jetty(9.4.z-SNAPSHOT)
+|_http-stored-xss: Couldn't find any stored XSS vulnerabilities.
+|_http-title: Site doesn't have a title (text/html;charset=utf-8).
+|_http-wordpress-users: [Error] Wordpress installation was not found. We couldn't find wp-login.php
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+OS fingerprint not ideal because: Timing level 5 (Insane) used
+Aggressive OS guesses: Microsoft Windows Server 2012 R2 (92%), Microsoft Windows Server 2008 R2 or Windows 8 (90%), Microsoft Windows 7 SP1 (90%), Microsoft Windows 8.1 R1 (90%), Microsoft Windows Server 2008 R2 (89%), Microsoft Windows Server 2008 R2 SP1 or Windows 8 (89%), Microsoft Windows 7 Professional or Windows 8 (89%), Microsoft Windows 7 SP1 or Windows Server 2008 SP2 or 2008 R2 SP1 (89%), Microsoft Windows Vista SP0 or SP1, Windows Server 2008 SP1, or Windows 7 (89%), Microsoft Windows Vista SP2, Windows 7 SP1, or Windows Server 2008 (89%)
+No exact OS matches for host (test conditions non-ideal).
+TCP/IP fingerprint:
+SCAN(V=7.91%E=4%D=8/8%OT=80%CT=%CU=%PV=Y%G=N%TM=610FCE2B%P=x86_64-pc-linux-gnu)
+SEQ(SP=FE%GCD=1%ISR=10D%TI=I%TS=7)
+OPS(O1=M506NW8ST11%O2=M506NW8ST11%O3=M506NW8NNT11%O4=M506NW8ST11%O5=M506NW8ST11%O6=M506ST11)
+WIN(W1=2000%W2=2000%W3=2000%W4=2000%W5=2000%W6=2000)
+ECN(R=Y%DF=Y%TG=80%W=2000%O=M506NW8NNS%CC=N%Q=)
+T1(R=Y%DF=Y%TG=80%S=O%A=S+%F=AS%RD=0%Q=)
+T2(R=N)
+T3(R=N)
+T4(R=N)
+U1(R=N)
+IE(R=N)
+
+Uptime guess: 0.037 days (since Sun Aug  8 20:36:45 2021)
+TCP Sequence Prediction: Difficulty=254 (Good luck!)
+IP ID Sequence Generation: Incremental
+Service Info: OS: Windows; CPE: cpe:/o:microsoft:windows
+
+Host script results:
+|_clock-skew: -3s
+
+TRACEROUTE (using port 3389/tcp)
+HOP RTT       ADDRESS
+1   243.90 ms 10.9.0.1
+2   ... 30
+
+Read data files from: /usr/bin/../share/nmap
+OS and Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+# Nmap done at Sun Aug  8 21:29:31 2021 -- 1 IP address (1 host up) scanned in 640.77 seconds

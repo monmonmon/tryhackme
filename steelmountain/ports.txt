@@ -1,0 +1,67 @@
+# Nmap 7.91 scan initiated Sat Jul 31 17:41:37 2021 as: nmap -vv -p- -T5 -oN ports.txt 10.10.196.237
+Increasing send delay for 10.10.196.237 from 0 to 5 due to 1088 out of 2719 dropped probes since last increase.
+Warning: 10.10.196.237 giving up on port because retransmission cap hit (2).
+Nmap scan report for 10.10.196.237
+Host is up, received echo-reply ttl 127 (0.24s latency).
+Scanned at 2021-07-31 17:41:37 JST for 725s
+Not shown: 65480 closed ports
+Reason: 65480 resets
+PORT      STATE    SERVICE       REASON
+80/tcp    open     http          syn-ack ttl 127
+135/tcp   open     msrpc         syn-ack ttl 127
+139/tcp   open     netbios-ssn   syn-ack ttl 127
+445/tcp   open     microsoft-ds  syn-ack ttl 127
+3389/tcp  open     ms-wbt-server syn-ack ttl 127
+4762/tcp  filtered unknown       no-response
+5492/tcp  filtered unknown       no-response
+5985/tcp  open     wsman         syn-ack ttl 127
+6175/tcp  filtered unknown       no-response
+6442/tcp  filtered tarp          no-response
+8080/tcp  open     http-proxy    syn-ack ttl 127
+10355/tcp filtered unknown       no-response
+13758/tcp filtered unknown       no-response
+16247/tcp filtered unknown       no-response
+16990/tcp filtered unknown       no-response
+17129/tcp filtered unknown       no-response
+18361/tcp filtered unknown       no-response
+18535/tcp filtered unknown       no-response
+18904/tcp filtered unknown       no-response
+21186/tcp filtered unknown       no-response
+23608/tcp filtered unknown       no-response
+23980/tcp filtered unknown       no-response
+25819/tcp filtered unknown       no-response
+25859/tcp filtered unknown       no-response
+26137/tcp filtered unknown       no-response
+26617/tcp filtered unknown       no-response
+28456/tcp filtered unknown       no-response
+29004/tcp filtered unknown       no-response
+29572/tcp filtered unknown       no-response
+29756/tcp filtered unknown       no-response
+35235/tcp filtered unknown       no-response
+35635/tcp filtered unknown       no-response
+38165/tcp filtered unknown       no-response
+38668/tcp filtered unknown       no-response
+40462/tcp filtered unknown       no-response
+41170/tcp filtered unknown       no-response
+45288/tcp filtered unknown       no-response
+46970/tcp filtered unknown       no-response
+47001/tcp open     winrm         syn-ack ttl 127
+48844/tcp filtered unknown       no-response
+48962/tcp filtered unknown       no-response
+49152/tcp open     unknown       syn-ack ttl 127
+49153/tcp open     unknown       syn-ack ttl 127
+49154/tcp open     unknown       syn-ack ttl 127
+49155/tcp open     unknown       syn-ack ttl 127
+49156/tcp open     unknown       syn-ack ttl 127
+49163/tcp open     unknown       syn-ack ttl 127
+49164/tcp open     unknown       syn-ack ttl 127
+49770/tcp filtered unknown       no-response
+51671/tcp filtered unknown       no-response
+56523/tcp filtered unknown       no-response
+61363/tcp filtered unknown       no-response
+64847/tcp filtered unknown       no-response
+65240/tcp filtered unknown       no-response
+65256/tcp filtered unknown       no-response
+
+Read data files from: /usr/bin/../share/nmap
+# Nmap done at Sat Jul 31 17:53:42 2021 -- 1 IP address (1 host up) scanned in 724.98 seconds

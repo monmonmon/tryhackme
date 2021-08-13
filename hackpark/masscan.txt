@@ -1,0 +1,2 @@
+Discovered open port 80/tcp on 10.10.178.96                                    
+Discovered open port 3389/tcp on 10.10.178.96                                  
