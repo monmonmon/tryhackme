@@ -1,0 +1,98 @@
+# Nmap 7.91 scan initiated Sat Aug 14 04:39:36 2021 as: nmap -Pn -vv -p22,80,443,10000 -n -T5 -A -oN nmap.txt 10.200.185.200
+Nmap scan report for 10.200.185.200
+Host is up, received user-set (0.18s latency).
+Scanned at 2021-08-14 04:39:36 EDT for 63s
+
+PORT      STATE SERVICE  REASON         VERSION
+22/tcp    open  ssh      syn-ack ttl 63 OpenSSH 8.0 (protocol 2.0)
+| ssh-hostkey: 
+|   3072 9c:1b:d4:b4:05:4d:88:99:ce:09:1f:c1:15:6a:d4:7e (RSA)
+| ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDfKbbFLiRV9dqsrYQifAghp85qmXpYEHf2g4JJqDKUL316TcAoGj62aamfhx5isIJHtQsA0hVmzD+4pVH4r8ANkuIIRs6j9cnBrLGpjk8xz9+BE1Vvd8lmORGxCqTv+9LgrpB7tcfoEkIOSG7zeY182kOR72igUERpy0JkzxJm2gIGb7Caz1s5/ScHEOhGX8VhNT4clOhDc9dLePRQvRooicIsENqQsLckE0eJB7rTSxemWduL+twySqtwN80a7pRzS7dzR4f6fkhVBAhYflJBW3iZ46zOItZcwT2u0wReCrFzxvDxEOewH7YHFpvOvb+Exuf3W6OuSjCHF64S7iU6z92aINNf+dSROACXbmGnBhTlGaV57brOXzujsWDylivWZ7CVVj1gB6mrNfEpBNE983qZskyVk4eTNT5cUD+3I/IPOz1bOtOWiraZCevFYaQR5AxNmx8sDIgo1z4VcxOMhrczc7RC/s3KWcoIkI2cI5+KUnDtaOfUClXPBCgYE50=
+|   256 93:55:b4:d9:8b:70:ae:8e:95:0d:c2:b6:d2:03:89:a4 (ECDSA)
+| ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBFccvYHwpGWYUsw9mTk/mEvzyrY4ghhX2D6o3n/upTLFXbhJPV6ls4C8O0wH6TyGq7ClV3XpVa7zevngNoqlwzM=
+|   256 f0:61:5a:55:34:9b:b7:b8:3a:46:ca:7d:9f:dc:fa:12 (ED25519)
+|_ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINLfVtZHSGvCy3JP5GX0Dgzcxz+Y9In0TcQc3vhvMXCP
+80/tcp    open  http     syn-ack ttl 63 Apache httpd 2.4.37 ((centos) OpenSSL/1.1.1c)
+| http-methods: 
+|_  Supported Methods: GET HEAD POST OPTIONS
+|_http-server-header: Apache/2.4.37 (centos) OpenSSL/1.1.1c
+|_http-title: Did not follow redirect to https://thomaswreath.thm
+443/tcp   open  ssl/http syn-ack ttl 63 Apache httpd 2.4.37 ((centos) OpenSSL/1.1.1c)
+| http-methods: 
+|   Supported Methods: GET POST OPTIONS HEAD TRACE
+|_  Potentially risky methods: TRACE
+|_http-server-header: Apache/2.4.37 (centos) OpenSSL/1.1.1c
+|_http-title: Thomas Wreath | Developer
+| ssl-cert: Subject: commonName=thomaswreath.thm/organizationName=Thomas Wreath Development/stateOrProvinceName=East Riding Yorkshire/countryName=GB/localityName=Easingwold/emailAddress=me@thomaswreath.thm
+| Issuer: commonName=thomaswreath.thm/organizationName=Thomas Wreath Development/stateOrProvinceName=East Riding Yorkshire/countryName=GB/localityName=Easingwold/emailAddress=me@thomaswreath.thm
+| Public Key type: rsa
+| Public Key bits: 2048
+| Signature Algorithm: sha256WithRSAEncryption
+| Not valid before: 2021-08-14T07:35:21
+| Not valid after:  2022-08-14T07:35:21
+| MD5:   22e5 c1c8 6585 4c26 5cf2 e025 d4e3 ff3e
+| SHA-1: 5c87 0bca 71f8 c6c9 ef71 3f93 baa9 0209 e263 2667
+| -----BEGIN CERTIFICATE-----
+| MIIELTCCAxWgAwIBAgIUDqEwPKVMGz0l0hAudIsm2vlXQKwwDQYJKoZIhvcNAQEL
+| BQAwgaUxCzAJBgNVBAYTAkdCMR4wHAYDVQQIDBVFYXN0IFJpZGluZyBZb3Jrc2hp
+| cmUxEzARBgNVBAcMCkVhc2luZ3dvbGQxIjAgBgNVBAoMGVRob21hcyBXcmVhdGgg
+| RGV2ZWxvcG1lbnQxGTAXBgNVBAMMEHRob21hc3dyZWF0aC50aG0xIjAgBgkqhkiG
+| 9w0BCQEWE21lQHRob21hc3dyZWF0aC50aG0wHhcNMjEwODE0MDczNTIxWhcNMjIw
+| ODE0MDczNTIxWjCBpTELMAkGA1UEBhMCR0IxHjAcBgNVBAgMFUVhc3QgUmlkaW5n
+| IFlvcmtzaGlyZTETMBEGA1UEBwwKRWFzaW5nd29sZDEiMCAGA1UECgwZVGhvbWFz
+| IFdyZWF0aCBEZXZlbG9wbWVudDEZMBcGA1UEAwwQdGhvbWFzd3JlYXRoLnRobTEi
+| MCAGCSqGSIb3DQEJARYTbWVAdGhvbWFzd3JlYXRoLnRobTCCASIwDQYJKoZIhvcN
+| AQEBBQADggEPADCCAQoCggEBAJs8ulEw3oft/p0a+XP1MnowDQ4QBe4QWWR7y7bw
+| 95a2Iz/5NqkuFj6UzIebYtlVlqPHpd4+bF5a3Q44b+CvFLZ2nssxh5wMWKh0NW06
+| SP2v5nH9SDkxj84+ue38hwoXcDRwRStZZr0VWRl1sIlj67Ihimri9CgGivJ77znz
+| N0lSgfw4HglFyFADR08zIvCU6MFjDzvrGiX49oHCMqR8AGmFOGsjz/4ORlfiozU0
+| 2viOCce4//0h5DaiSDSgaPRp+u33uL2yl70ngJDKQFEFHT54y6cT4G/tt9/8jKqZ
+| wrFDgHVZzMItHMqpwq+DG/O/s8ly2JaxfGl5jBWa8M5OhscCAwEAAaNTMFEwHQYD
+| VR0OBBYEFCNQXXIlkfLFMM2WmT/UQy2YXy4oMB8GA1UdIwQYMBaAFCNQXXIlkfLF
+| MM2WmT/UQy2YXy4oMA8GA1UdEwEB/wQFMAMBAf8wDQYJKoZIhvcNAQELBQADggEB
+| AFrc2e7jS0iUKaeZw5E/zSt8iuc0CHXpSWPUku2DC6BSN/tfP0jSDC40/FyYGcsW
+| c6jIPCpYVvi7lDFMXhpiQ/ZwEftvWuU4HKnUzWmORRB0V4lK9t32vXc0Zd6D2Z/d
+| AlbC1sUDIQj0b6GUfTVx/pPeTy1rfYGE0nnXKupFzff0DbzZF+BkAsdX0oj2i/9D
+| XghBuNm/aou8bK81/4trwSHvUfSuhbqI1I3+7eGzLU4PT0Fqgs7cSjakF2FD1gjT
+| +tl73F1z4VW409MVt2Xl9nXq4pSq4nlqgLyqASF2JbfO912P00h0/YlEPEgdTJbg
+| QovJlY11Oc0XFL/1U1bQ9PE=
+|_-----END CERTIFICATE-----
+|_ssl-date: TLS randomness does not represent time
+| tls-alpn: 
+|_  http/1.1
+10000/tcp open  http     syn-ack ttl 63 MiniServ 1.890 (Webmin httpd)
+|_http-favicon: Unknown favicon MD5: B647BE2758DE4B037840BF45E784E257
+| http-methods: 
+|_  Supported Methods: GET HEAD POST OPTIONS
+|_http-title: Site doesn't have a title (text/html; Charset=iso-8859-1).
+|_http-trane-info: Problem with XML parsing of /evox/about
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+OS fingerprint not ideal because: Timing level 5 (Insane) used
+Aggressive OS guesses: Linux 3.10 - 3.13 (91%), Crestron XPanel control system (89%), HP P2000 G3 NAS device (86%), ASUS RT-N56U WAP (Linux 3.4) (86%), Linux 3.1 (86%), Linux 3.16 (86%), Linux 3.2 (86%), AXIS 210A or 211 Network Camera (Linux 2.6.17) (86%), Linux 5.4 (85%), Linux 2.6.32 (85%)
+No exact OS matches for host (test conditions non-ideal).
+TCP/IP fingerprint:
+SCAN(V=7.91%E=4%D=8/14%OT=22%CT=%CU=%PV=Y%DS=2%DC=T%G=N%TM=61178187%P=x86_64-pc-linux-gnu)
+SEQ(SP=FF%GCD=1%ISR=10C%TI=Z%TS=A)
+OPS(O1=M506ST11NW7%O2=M506ST11NW7%O3=M506NNT11NW7%O4=M506ST11NW7%O5=M506ST11NW7%O6=M506ST11)
+WIN(W1=68DF%W2=68DF%W3=68DF%W4=68DF%W5=68DF%W6=68DF)
+ECN(R=Y%DF=Y%TG=40%W=6903%O=M506NNSNW7%CC=Y%Q=)
+T1(R=Y%DF=Y%TG=40%S=O%A=S+%F=AS%RD=0%Q=)
+T2(R=N)
+T3(R=N)
+T4(R=Y%DF=Y%TG=40%W=0%S=A%A=Z%F=R%O=%RD=0%Q=)
+U1(R=N)
+IE(R=Y%DFI=N%TG=40%CD=S)
+
+Uptime guess: 19.947 days (since Sun Jul 25 05:56:52 2021)
+Network Distance: 2 hops
+TCP Sequence Prediction: Difficulty=261 (Good luck!)
+IP ID Sequence Generation: All zeros
+
+TRACEROUTE (using port 22/tcp)
+HOP RTT       ADDRESS
+1   315.15 ms 10.50.182.1
+2   3.66 ms   10.200.185.200
+
+Read data files from: /usr/bin/../share/nmap
+OS and Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+# Nmap done at Sat Aug 14 04:40:39 2021 -- 1 IP address (1 host up) scanned in 63.62 seconds
